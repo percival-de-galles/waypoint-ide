@@ -1,0 +1,192 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.usage-agent-claude { --usage-agent-color: var(--vscode-charts-orange); }
+.usage-agent-codex { --usage-agent-color: var(--vscode-charts-purple); }
+.usage-agent-opencode { --usage-agent-color: var(--vscode-charts-blue); }
+.usage-agent-cursor { --usage-agent-color: var(--vscode-charts-yellow); }
+.usage-agent-pi { --usage-agent-color: var(--vscode-charts-green); }
+
+.usage-limit-card {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 12px 16px;
+	border: 1px solid var(--vscode-widget-border, rgba(127, 127, 127, 0.3));
+	border-radius: 8px;
+}
+
+.usage-limit-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.usage-limit-header.collapsible {
+	width: 100%;
+	padding: 0;
+	border: none;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: start;
+	cursor: pointer;
+}
+
+.usage-limit-header.collapsible:focus-visible {
+	outline: 1px solid var(--vscode-focusBorder);
+	outline-offset: 2px;
+}
+
+.usage-limit-header.collapsible > .codicon-chevron-down {
+	margin-inline-start: auto;
+	color: var(--vscode-descriptionForeground);
+}
+
+.usage-limit-card.collapsed .usage-limit-header > .codicon-chevron-down {
+	margin-inline-start: 0;
+	transform: rotate(-90deg);
+}
+
+.usage-limit-summary {
+	display: none;
+	margin-inline-start: auto;
+	color: var(--vscode-descriptionForeground);
+	font-size: 12px;
+}
+
+.usage-limit-card.collapsed .usage-limit-summary {
+	display: inline;
+}
+
+.usage-limit-card.collapsed .usage-limit-window {
+	display: none;
+}
+
+.usage-limit-name {
+	font-weight: 600;
+}
+
+.usage-limit-plan {
+	color: var(--vscode-descriptionForeground);
+	font-size: 12px;
+	text-transform: capitalize;
+}
+
+.usage-limit-label {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 4px;
+	font-size: 13px;
+}
+
+.usage-limit-left {
+	font-weight: 600;
+}
+
+.usage-limit-bar {
+	height: 8px;
+	overflow: hidden;
+	border-radius: 4px;
+	background: var(--vscode-toolbar-hoverBackground);
+}
+
+.usage-limit-fill {
+	height: 100%;
+	border-radius: 4px;
+	background: var(--usage-agent-color);
+}
+
+.usage-limit-reset {
+	margin-top: 4px;
+	color: var(--vscode-descriptionForeground);
+	font-size: 12px;
+}
+
+.interactive-session .chat-secondary-toolbar .chat-context-usage-container {
+	gap: 2px;
+}
+
+.chat-agent-limits-widget {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	height: var(--chat-input-control-height);
+	padding: 0 4px;
+	border-radius: var(--vscode-cornerRadius-small);
+	color: var(--vscode-descriptionForeground);
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.chat-agent-limits-widget:hover {
+	background: var(--vscode-toolbar-hoverBackground);
+	color: var(--vscode-foreground);
+}
+
+.chat-agent-limits-widget:focus-visible {
+	outline: 1px solid var(--vscode-focusBorder);
+	outline-offset: -1px;
+}
+
+/* The popup takes focus for the keyboard, so it reads as a plain hover rather than a focused box. */
+.workbench-hover-container.locked:has(.chat-agent-limits-popup) .monaco-hover.workbench-hover,
+.workbench-hover-container:focus-within.locked:has(.chat-agent-limits-popup) .monaco-hover.workbench-hover {
+	outline: none;
+	border-color: var(--vscode-editorHoverWidget-border);
+}
+
+.chat-agent-limits-popup {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 240px;
+	margin: 4px 0;
+	font-size: 12px;
+}
+
+.chat-agent-limits-popup:focus {
+	outline: none;
+}
+
+.chat-agent-limits-popup-title {
+	color: var(--vscode-descriptionForeground);
+	font-weight: 600;
+}
+
+.chat-agent-limits-popup .usage-limit-card {
+	gap: 8px;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+}
+
+.chat-agent-limits-popup .usage-limit-card + .usage-limit-card {
+	padding-top: 8px;
+	border-top: 1px solid var(--vscode-editorWidget-border);
+}
+
+.chat-agent-limits-popup .usage-limit-plan,
+.chat-agent-limits-popup .usage-limit-reset {
+	font-size: 11px;
+}
+
+.chat-agent-limits-popup .usage-limit-label {
+	font-size: 12px;
+}
+
+.chat-agent-limits-popup .usage-limit-left {
+	color: var(--vscode-descriptionForeground);
+	font-weight: normal;
+}
+
+.chat-agent-limits-popup .usage-limit-bar {
+	height: 4px;
+	background: var(--vscode-editorWidget-border);
+}
+
+.chat-agent-limits-popup-empty {
+	color: var(--vscode-descriptionForeground);
+}
